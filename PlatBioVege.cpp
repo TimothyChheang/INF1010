@@ -9,10 +9,10 @@ PlatBioVege::PlatBioVege(string nom, double prix, double cout, double ecotaxe, d
 
 }
 
-PlatBioVege::PlatBioVege(string nom, double prix, double cout, double ecotaxe, double vitamines, double proteines, double mineraux), PlatBio()
-{
-	
-}
+//PlatBioVege::PlatBioVege(string nom, double prix, double cout, double ecotaxe, double vitamines, double proteines, double mineraux), PlatBio()
+//{
+//	
+//}
 
 PlatBioVege:: ~PlatBioVege(){}
 

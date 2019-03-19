@@ -18,6 +18,41 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Boisson.cpp" />
+    <ClCompile Include="..\..\Client.cpp" />
+    <ClCompile Include="..\..\ClientOccasionnel.cpp" />
+    <ClCompile Include="..\..\ClientPrestige.cpp" />
+    <ClCompile Include="..\..\ClientRegulier.cpp" />
+    <ClCompile Include="..\..\LectureFichierEnSections.cpp" />
+    <ClCompile Include="..\..\main.cpp" />
+    <ClCompile Include="..\..\Menu.cpp" />
+    <ClCompile Include="..\..\Plat.cpp" />
+    <ClCompile Include="..\..\PlatBio.cpp" />
+    <ClCompile Include="..\..\PlatBioVege.cpp" />
+    <ClCompile Include="..\..\PlatVege.cpp" />
+    <ClCompile Include="..\..\Vege.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Boisson.h" />
+    <ClInclude Include="..\..\Client.h" />
+    <ClInclude Include="..\..\ClientOccasionnel.h" />
+    <ClInclude Include="..\..\ClientPrestige.h" />
+    <ClInclude Include="..\..\ClientRegulier.h" />
+    <ClInclude Include="..\..\debogageMemoire.hpp" />
+    <ClInclude Include="..\..\def.h" />
+    <ClInclude Include="..\..\LectureFichierEnSections.h" />
+    <ClInclude Include="..\..\Menu.h" />
+    <ClInclude Include="..\..\Plat.h" />
+    <ClInclude Include="..\..\PlatBio.h" />
+    <ClInclude Include="..\..\PlatBioVege.h" />
+    <ClInclude Include="..\..\PlatVege.h" />
+    <ClInclude Include="..\..\pointers.h" />
+    <ClInclude Include="..\..\Vege.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\polyFood.txt" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{845EE156-D2CB-4B34-8B5B-BEF9A2A2F2C1}</ProjectGuid>
@@ -142,46 +177,6 @@
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\Boisson.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\Client.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\ClientOccasionnel.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\ClientPrestige.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\ClientRegulier.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\LectureFichierEnSections.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\main.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\Menu.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\Plat.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\PlatBio.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\PlatBioVege.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\PlatVege.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\Restaurant.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\Table.cpp" />
-    <ClCompile Include="..\..\..\..\Desktop\INF1010\TD4\Vege.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\Boisson.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\Client.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\ClientOccasionnel.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\ClientPrestige.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\ClientRegulier.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\debogageMemoire.hpp" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\def.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\LectureFichierEnSections.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\Menu.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\Plat.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\PlatBio.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\PlatBioVege.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\PlatVege.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\pointers.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\Restaurant.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\Table.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\Taxable.h" />
-    <ClInclude Include="..\..\..\..\Desktop\INF1010\TD4\Vege.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\..\..\Desktop\INF1010\TD4\polyFood.txt" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
