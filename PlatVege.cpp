@@ -21,10 +21,13 @@ Plat* PlatVege::clone()const
 
 void PlatVege::afficherPlat(ostream & os) const
 {   //TODO
+	os << "PLAT VEGE " << nom_ << " vitamines" << vitamines_ << " proteines " << proteines_ << " mineraux " << mineraux_ << endl;
+	os << "(Apport nutritif " << calculerApportNutritif() << " )" << endl;
 }
 
 double PlatVege::calculerApportNutritif() const
 {
 
     //TODO
+	return (vitamines_*proteines_ / mineraux_)*RAPPORT_NUTRITIF;
 }
