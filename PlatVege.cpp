@@ -7,22 +7,22 @@
 
 //TODO
 PlatVege::PlatVege(string nom, double prix, double cout,
-                   double vitamines, double proteines, double mineraux)
+                   double vitamines, double proteines, double mineraux) : Plat(nom, prix, cout), Vege(nom, vitamines, proteines, mineraux)
 {
-    //TODO
 }
 PlatVege::~ PlatVege(){}
 
 Plat* PlatVege::clone()const
-{ //TODO
-    
+{ 
+	return new PlatVege(*this);
 }
 
 
 void PlatVege::afficherPlat(ostream & os) const
-{   //TODO
-	os << "PLAT VEGE " << nom_ << " vitamines" << vitamines_ << " proteines " << proteines_ << " mineraux " << mineraux_ << endl;
-	os << "(Apport nutritif " << calculerApportNutritif() << " )" << endl;
+{   //TODO DONE :)
+	Plat::afficherPlat(os);
+	afficherVege(os);
+	os << "(Apport nutritif  " << calculerApportNutritif() << "mg)" << endl;
 }
 
 double PlatVege::calculerApportNutritif() const

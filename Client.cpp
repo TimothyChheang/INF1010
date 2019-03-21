@@ -36,7 +36,11 @@ Table * Client:: getTable() const
 { return tableOccupee_;}
 
 void Client::afficherClient(ostream & os) const
-{ // TODO
-
+{
+	os << prenom_ << " " << nom_;
+	if (tableOccupee_ != nullptr)
+		os << "a une place au resto." << endl;
+	else
+		os << "n'a pas de place au resto. " << endl;
 }
 

@@ -21,21 +21,22 @@ void PlatBio::setEcoTaxe(double ecoTaxe)
 	ecoTaxe_ = ecoTaxe;
 }
 
-//TODO
+//TODO DONE :)
 Plat * PlatBio:: clone () const
 {
-	return new PlatBio(nom_,prix_,cout_,ecoTaxe_);
+	return new PlatBio(*this);
 }
 double PlatBio:: getPrixDeRevient()
 { 
-	//TODO
+	//TODO DONE :)
 	return (prix_ - cout_ + ecoTaxe_);
 	
 }
 
 void PlatBio::afficherPlat(ostream& os) const
 {
-    //TODO
+    //TODO DONE :)
+	Plat::afficherPlat(os);
 	os << "PLAT BIO  comprend une taxe ecologique de " << ecoTaxe_ << "$" << endl;
 
 }

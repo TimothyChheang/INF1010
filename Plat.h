@@ -19,9 +19,9 @@ public:
 	Plat(string_view nom = "inconnu", double prix = 0, double cout = 0);
          ~Plat();
 	//getters 
-	string getNom() const;
-	double getPrix() const;
-	double getCout() const;
+	virtual string getNom() const;
+	virtual double getPrix() const;
+	virtual double getCout() const;
 
 	//setters 
 	void setNom(string nom);
@@ -29,9 +29,9 @@ public:
 
 	//methodes en plus
         double getPrixRevient();
-        Plat *  clone () const; // TODO
+        Plat *  clone () const; // TODO DONE :)
 	bool operator < (const Plat& plat) const;
-        void afficherPlat(ostream& os) const; // TODO
+        void afficherPlat(ostream& os) const; // TODO DONE :)
 
 
 protected:

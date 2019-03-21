@@ -52,5 +52,5 @@ double Plat::getPrixRevient()
 }
  Plat *  Plat:: clone () const
 { 
-	 return new Plat(nom_, prix_, cout_);
+	 return new Plat(*this);
 }

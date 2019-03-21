@@ -19,7 +19,7 @@ public:
                 double cout = 0, double ecotaxe = 0);//TODO
         ~ PlatBio();
 	//getters 
-	double getEcoTaxe() const;
+	virtual double getEcoTaxe() const;
 	//setters 
 	void setEcoTaxe(double ecoTaxe);
         void afficherPlat(ostream& os) const; // TODO
