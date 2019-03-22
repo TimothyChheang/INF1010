@@ -37,7 +37,7 @@ Table * Client:: getTable() const
 
 void Client::afficherClient(ostream & os) const
 {
-	os << prenom_ << " " << nom_;
+	os << prenom_ << " " << nom_ << "taille de groupe : "<<tailleGroupe_;
 	if (tableOccupee_ != nullptr)
 		os << "a une place au resto." << endl;
 	else

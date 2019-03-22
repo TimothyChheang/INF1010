@@ -22,7 +22,8 @@ ZoneHabitation ClientPrestige::getAdresseCode() const
 
 void ClientPrestige::afficherClient(ostream & os) const
 {
-	Client::afficherClient(os);
+	ClientRegulier::afficherClient(os);
+	
 }
 string ClientPrestige::getAdressCodeString() const
 {

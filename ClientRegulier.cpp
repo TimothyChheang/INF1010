@@ -29,6 +29,7 @@ void ClientRegulier::augmenterNbPoints(int bonus)
 void ClientRegulier::afficherClient(ostream & os) const
 {
 	Client::afficherClient(os);
+	os << "Le client  a accumule : " << nbPoints_;
 }
 
 double ClientRegulier::getReduction(const Restaurant & res, double montant, bool estLivraison)

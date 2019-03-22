@@ -24,6 +24,14 @@ Menu::Menu(string fichier, TypeMenu type) :
 Menu::~Menu()
 {
 	//TODO
+	for (int i = 0; i < listePlats_.size(); i++) {
+		delete listePlats_[i];
+		listePlats_.pop_back();
+	}
+	for (int i = 0; i < listePlatsVege_.size(); i++) {
+		delete listePlatsVege_[i];
+		listePlatsVege_.pop_back();
+	}
 }
 
 Plat* Menu::allouerPlat(Plat* plat) {
@@ -31,10 +39,9 @@ Plat* Menu::allouerPlat(Plat* plat) {
 }
 
 
-Menu::Menu(const Menu & menu) : type_(menu.type_)
+Menu::Menu(const Menu & menu) : type_(menu.type_),listePlats_(menu.listePlats_),listePlatsVege_(menu.listePlatsVege_)
 {
 	//TODO
-  
 }
 
 Menu & Menu::operator=(const Menu & menu)
