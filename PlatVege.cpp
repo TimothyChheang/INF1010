@@ -17,6 +17,12 @@ Plat* PlatVege::clone()const
 	return new PlatVege(*this);
 }
 
+double PlatVege::getTaxe() const {
+	return 0.07;
+}
+
+void PlatVege::setTaxe(){}
+
 
 void PlatVege::afficherPlat(ostream & os) const
 {   //TODO DONE :)

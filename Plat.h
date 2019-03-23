@@ -31,7 +31,7 @@ public:
         double getPrixRevient();
         Plat *  clone () const; // TODO DONE :)
 	bool operator < (const Plat& plat) const;
-        void afficherPlat(ostream& os) const; // TODO DONE :)
+       virtual void afficherPlat(ostream& os) const; // TODO DONE :)
 
 
 protected:

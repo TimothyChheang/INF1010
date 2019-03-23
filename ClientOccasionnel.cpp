@@ -7,7 +7,9 @@
 ClientOccasionnel::ClientOccasionnel(string_view nom, string_view prenom, int tailleGroupe) : Client(nom, prenom, tailleGroupe)
 { 
 }
-ClientOccasionnel::~ClientOccasionnel(){}
+ClientOccasionnel::~ClientOccasionnel(){
+	delete tableOccupee_;
+}
 
 int ClientOccasionnel::getNbPoints() const
 {

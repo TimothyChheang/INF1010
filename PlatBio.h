@@ -22,7 +22,7 @@ public:
 	virtual double getEcoTaxe() const;
 	//setters 
 	void setEcoTaxe(double ecoTaxe);
-        void afficherPlat(ostream& os) const; // TODO
+        virtual void afficherPlat(ostream& os) const; // TODO
         double getPrixDeRevient(); //TODO
         Plat * clone() const; // TODO
 protected:

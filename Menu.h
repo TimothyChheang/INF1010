@@ -32,7 +32,7 @@ public:
 	// Autres méthodes.
 
 	Plat* trouverPlat(string_view nom) const;
-        Plat* allouerPlat(Plat* plat);
+        Plat* allouerPlat(Plat* plat) const;
 	Menu& operator+=(owner<Plat*> plat);  // TODO //? Le parametre est indique "owner" pour montrer que cette methode prend possession du pointeur qui lui est passe, mais owner<Plat*> est equivalent à Plat*; voir pointers.h .
 	Menu& operator=(const Menu& menu); // TODO
 	void lireMenu(const string& fichier); 

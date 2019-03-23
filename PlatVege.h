@@ -8,16 +8,19 @@
 #include "Vege.h"
 #include "Plat.h"
 #include "def.h"
+#include "Taxable.h"
 class PlatVege :
-        public Vege, public Plat
+        public Vege, public Plat, public Taxable
 {
 public:
 	PlatVege(string nom = "inconnu", double prix = 0, double cout = 0, double vitamines = 0,
              double proteines = 0, double mineraux = 0);//TODO
      ~ PlatVege();
-     Plat * clone()const; // TODO
-     void afficherPlat(ostream & os) const;//TODO
+     Plat * clone() const; // TODO
+     virtual void afficherPlat(ostream & os) const;//TODO
      double calculerApportNutritif() const; // TODO
+	 virtual double getTaxe() const;
+	 virtual void setTaxe();
 protected:
 
 };

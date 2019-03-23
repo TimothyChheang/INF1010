@@ -9,6 +9,9 @@ Client::Client()
 { tableOccupee_ = nullptr;
 }
 
+
+
+
 Client::Client(string_view nom, string_view prenom, int tailleGroupe) :
 	nom_(nom), prenom_(prenom), tailleGroupe_(tailleGroupe)
 {
