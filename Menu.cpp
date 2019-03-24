@@ -24,16 +24,11 @@ Menu::Menu(string fichier, TypeMenu type) :
 Menu::~Menu()
 {
 	//TODO
-	/*for (int i = listePlats_.size() - 1; i > -1 ; i--) {
-		delete listePlats_[i];
-		listePlats_.pop_back();
-	}*/
-	/*for (int i = listePlatsVege_.size() - 1; i > -1 ; i--) {
-		delete listePlatsVege_[i];
-		listePlatsVege_.pop_back();
-	}*/
-	/*for (Plat* plat : listePlats_)
-		delete plat;*/
+	for (int i = 0; i < listePlats_.size() ; i++) {
+		listePlats_[i] = nullptr;
+	}
+	listePlats_.clear();
+	listePlatsVege_.clear();
 }
 
 Plat* Menu::allouerPlat(Plat* plat) const {
@@ -140,7 +135,7 @@ ostream& operator<<(ostream& os, const Menu& menu){
 		menu.listePlats_[i]->afficherPlat(os);
 	os << endl << "MENU ENTIEREMENT VEGETARIEN" << endl;
 	for (int i = 0; i < menu.listePlatsVege_.size(); i++)
-		dynamic_cast<Plat*>(menu.listePlatsVege_[i])->afficherPlat(os);
+		menu.listePlatsVege_[i]->afficherVege(os);
 	return os;
 }
 

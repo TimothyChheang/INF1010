@@ -14,7 +14,6 @@ PlatBioVege:: ~PlatBioVege(){}
 //TODO
 void PlatBioVege::afficherPlat(ostream & os) const
 {  
-	Plat::afficherPlat(os);
 	PlatBio::afficherPlat(os);
 	os << "ET ";
 	afficherVege(os);
