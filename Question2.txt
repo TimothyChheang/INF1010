@@ -1,0 +1,7 @@
+Quel est la différence entre une classe abstraite et une interface?
+
+Une classe abstraite est une classe dont nous avons besoin d'une implementation et qu'
+on ne peut pas initialiser. De plus, on retrouve des fonction qui sont virtuelles pures.
+
+Une interface n'a pas besoin d'une implementation et les seuls fonctions possible
+sont un destructeur virtuelle et des fonctions virtuelles pures.
