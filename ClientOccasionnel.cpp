@@ -10,7 +10,7 @@ ClientOccasionnel::ClientOccasionnel(string_view nom, string_view prenom, int ta
 
 
 ClientOccasionnel:: ~ClientOccasionnel() {
-	delete tableOccupee_;
+	
 }
 
 int ClientOccasionnel::getNbPoints() const

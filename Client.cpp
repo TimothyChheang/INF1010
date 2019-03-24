@@ -10,7 +10,7 @@ Client::Client()
 }
 
 Client::~Client() {
-	delete tableOccupee_;
+	
 }
 
 

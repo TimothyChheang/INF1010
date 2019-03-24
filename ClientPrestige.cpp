@@ -16,7 +16,7 @@ ClientPrestige::ClientPrestige(string_view nom, string_view prenom, int tailleGr
 }
 
 ClientPrestige::~ClientPrestige() {
-	delete tableOccupee_;
+	
 }
 
 ZoneHabitation ClientPrestige::getAdresseCode() const

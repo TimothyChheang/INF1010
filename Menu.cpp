@@ -24,14 +24,16 @@ Menu::Menu(string fichier, TypeMenu type) :
 Menu::~Menu()
 {
 	//TODO
-	for (int i = listePlats_.size() - 1; i > -1 ; i--) {
+	/*for (int i = listePlats_.size() - 1; i > -1 ; i--) {
 		delete listePlats_[i];
 		listePlats_.pop_back();
-	}
-	for (int i = listePlatsVege_.size() - 1; i > -1 ; i--) {
+	}*/
+	/*for (int i = listePlatsVege_.size() - 1; i > -1 ; i--) {
 		delete listePlatsVege_[i];
 		listePlatsVege_.pop_back();
-	}
+	}*/
+	/*for (Plat* plat : listePlats_)
+		delete plat;*/
 }
 
 Plat* Menu::allouerPlat(Plat* plat) const {
