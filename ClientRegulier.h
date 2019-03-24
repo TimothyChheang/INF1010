@@ -5,12 +5,11 @@
 #ifndef CLIENT_REG
 #define CLIENT_REG
 #include "Client.h"
-#include "Restaurant.h"
+//include "Restaurant.h"
 #include "def.h"
 class Restaurant;
 
-class ClientRegulier : public Client
-{
+class ClientRegulier : public Client {
  public:
 	ClientRegulier();
 	ClientRegulier(string_view nom, string_view prenom, int tailleGroupe, int nbPoints);// TODO
@@ -21,9 +20,10 @@ class ClientRegulier : public Client
 	//Autres Methodes
 	void augmenterNbPoints(int bonus);
     void afficherClient(ostream & os) const; // TODO
-    double getReduction(const Restaurant & res, double montant , bool estLivraison);// TODO
-//
+    double getReduction(const Restaurant & res, double montant , bool estLivraison); // TODO
 protected:
 	int nbPoints_;
+
+private:
 };
 #endif

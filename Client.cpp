@@ -9,7 +9,9 @@ Client::Client()
 { tableOccupee_ = nullptr;
 }
 
-
+Client::~Client() {
+	delete tableOccupee_;
+}
 
 
 Client::Client(string_view nom, string_view prenom, int tailleGroupe) :

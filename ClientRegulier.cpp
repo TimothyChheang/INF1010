@@ -9,12 +9,14 @@ ClientRegulier::ClientRegulier()
 	nbPoints_ = 0;
 }
 
-ClientRegulier::ClientRegulier(string_view nom, string_view prenom, int tailleGroupe, int nbpoints) : Client(nom, prenom, tailleGroupe), nbPoints_(nbpoints)
-{ 
-}
 ClientRegulier::~ClientRegulier() {
 	delete tableOccupee_;
 }
+
+ClientRegulier::ClientRegulier(string_view nom, string_view prenom, int tailleGroupe, int nbpoints) : Client(nom, prenom, tailleGroupe), nbPoints_(nbpoints)
+{ 
+}
+
 
 int ClientRegulier::getNbPoints() const
 {
