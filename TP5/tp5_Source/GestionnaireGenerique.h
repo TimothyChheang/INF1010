@@ -8,6 +8,9 @@
 
 #include <algorithm>
 #include "Foncteur.h"
+#include <utility>
+#include <map>
+#include <functional>
 
 using namespace  std;
 
