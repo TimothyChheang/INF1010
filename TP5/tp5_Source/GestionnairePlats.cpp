@@ -10,9 +10,22 @@
 #include "PlatVege.h"
 #include "PlatBioVege.h"
 
+template<typename T, typename C>
+GestionnairePlats<T,C>::GestionnairePlats(const string& nomFichier, TypeMenu type) {
+	type = type_;
+	lirePlats(nomFichier,type); // a revoir
+}
 
 
-void GestionnairePlats::lirePlats(const string& nomFichier, TypeMenu type)
+template<typename T, typename C>
+GestionnairePlats<T,C>::GestionnairePlats(GestionnairePlats* gestionnaire) {
+	GestionnairePlats gestionnaire_new;
+	copy(gestionnaire.begin(),getionnaire.end() ,gestionnaire_new.begin() );
+}
+
+
+template<typename T, typename C>
+void GestionnairePlats<T,C>::lirePlats(const string& nomFichier, TypeMenu type)
 {
 	LectureFichierEnSections fichier{ nomFichier };
 	fichier.allerASection(entetesDesTypesDeMenu[static_cast<int>(type)]);
@@ -20,7 +33,9 @@ void GestionnairePlats::lirePlats(const string& nomFichier, TypeMenu type)
 		ajouter(lirePlatDe(fichier));
 }
 
-pair<string, Plat*> GestionnairePlats::lirePlatDe(LectureFichierEnSections& fichier)
+
+template<typename T, typename C>
+pair<string, Plat*> GestionnairePlats<T,C>::lirePlatDe(LectureFichierEnSections& fichier)
 {
 	auto lectureLigne = fichier.lecteurDeLigne();
 	Plat* plat;

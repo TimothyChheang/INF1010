@@ -18,7 +18,8 @@
 
 using namespace std;
 
-class GestionnairePlats // TODO : Ajouter l'héritage 
+template<typename T, typename C>
+class GestionnairePlats : public GestionnaireGenerique<T,C>
 {
 public:
 	GestionnairePlats(const string& nomFichier, TypeMenu type); //TODO
