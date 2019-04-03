@@ -3,22 +3,21 @@
 #include "GestionnaireGenerique.h"
 
 template<typename T, typename C>
-
-
-void GestionnaireGenerique::ajouter(T t) const
+void GestionnaireGenerique<T,C>::ajouter(T t) 
 {
-
+	inserter(t, conteneur_.begin());
+	//conteneur_.insert(t);
 
 }
 
-
-int GestionnaireGenerique::getNombreElements() const
+template <typename T, typename C>
+int GestionnaireGenerique<T,C>::getNombreElements() const
 {
 	return conteneur_.size();
 }
 
-C GestionnaireGenerique::getConteneur() const
+template <typename T, typename C>
+C GestionnaireGenerique<T,C>::getConteneur() const
 {
-	copy(conteneur_.begin(), conteneur_.end(), );
 	return conteneur_;
 }
