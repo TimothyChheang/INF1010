@@ -16,6 +16,9 @@ GestionnairePlats::GestionnairePlats(const string& nomFichier, TypeMenu type) {
 	lirePlats(nomFichier,type); // a revoir
 }
 
+GestionnairePlats ::~GestionnairePlats() {
+
+}
 
 GestionnairePlats::GestionnairePlats(GestionnairePlats* gestionnaire) {
 	

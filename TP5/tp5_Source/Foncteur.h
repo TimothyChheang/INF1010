@@ -14,12 +14,30 @@ using namespace std;
 
 class FoncteurPlatMoinsCher
 { // TODO
+	public:
+		FoncteurPlatMoinsCher(Plat* plat);
+		bool operator()(Plat* plat);
+
+
+
+
+	private:
+
+		Plat* plat_;
+
+
 
     
 };
 
 class FoncteurIntervalle
 {
-   // TODO
+	public:
+		FoncteurIntervalle(int max, int min);
+		bool operator()(Plat* plat);
+
+
+	private:
+		int max_, min_;
 };
 
