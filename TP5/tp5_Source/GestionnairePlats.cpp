@@ -17,16 +17,18 @@ GestionnairePlats::GestionnairePlats(const string& nomFichier, TypeMenu type): t
 }
 
 GestionnairePlats ::~GestionnairePlats() {
-
+	map<string, Plat*> ::const_iterator it;
+	for (it = conteneur_.begin(); it != conteneur_.end(); it++) {
+		delete (*it).second;
+	}
 }
 
 GestionnairePlats::GestionnairePlats(GestionnairePlats* gestionnaire) {
-
+	type_ = gestionnaire->getType();
 	map<string,Plat*> :: const_iterator it;
 	for (it =gestionnaire->conteneur_.begin(); it!= gestionnaire->conteneur_.end(); it++) {
-		conteneur_.insert(*it);
+		conteneur_.insert(make_pair((*it).first, allouerPlat((*it).second)));
 	}
-	
 }
 
 TypeMenu GestionnairePlats::getType() const {
@@ -34,14 +36,25 @@ TypeMenu GestionnairePlats::getType() const {
 }
 
 
-Plat* GestionnairePlats::allouerPlat(Plat*) {
-	
+Plat* GestionnairePlats::allouerPlat(Plat* plat) {
+	return plat->clone();
 }
 
 Plat* GestionnairePlats::trouverPlatMoinsCher() const {
 
+	return (min_element((*conteneur_.begin()).second, (*conteneur_.end()).second, FoncteurPlatMoinsCher()));
 }
 
+Plat* GestionnairePlats::trouverPlatPlusCher() const {
+	auto p = [](Plat* plat1, Plat* plat2) {
+		return (plat1->getPrix() > plat2->getPrix());
+	};
+	return (max_element((*conteneur_.begin()).second, (*conteneur_.end()).second, p));
+}
+	
+Plat* GestionnairePlats::trouverPlat(const string& nom) const {
+	map<string, Plat*> ::const_iterator it;
+};
 
 
 void GestionnairePlats::lirePlats(const string& nomFichier, TypeMenu type)
@@ -51,7 +64,6 @@ void GestionnairePlats::lirePlats(const string& nomFichier, TypeMenu type)
 	while (!fichier.estFinSection())
 		ajouter(lirePlatDe(fichier));
 }
-
 
 
 pair<string, Plat*> GestionnairePlats::lirePlatDe(LectureFichierEnSections& fichier)
