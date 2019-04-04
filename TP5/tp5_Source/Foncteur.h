@@ -15,15 +15,14 @@ using namespace std;
 class FoncteurPlatMoinsCher
 { // TODO
 	public:
-		FoncteurPlatMoinsCher(Plat* plat);
-		bool operator()(Plat* plat);
+		
+		bool operator()(Plat* plat1, Plat* plat2) { return plat1->getPrix() < plat2->getPrix(); }
 
 
 
 
 	private:
-
-		Plat* plat_;
+		
 
 
 
@@ -33,8 +32,8 @@ class FoncteurPlatMoinsCher
 class FoncteurIntervalle
 {
 	public:
-		FoncteurIntervalle(int max, int min);
-		bool operator()(Plat* plat);
+		FoncteurIntervalle(int max, int min) : max_(max), min_(min) {}
+		bool operator()(Plat* plat){ return (plat->getPrix >= min_ && plat->getPrix <= max_); }
 
 
 	private:

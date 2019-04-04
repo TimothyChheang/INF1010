@@ -11,9 +11,9 @@
 #include "PlatBioVege.h"
 
 
-GestionnairePlats::GestionnairePlats(const string& nomFichier, TypeMenu type) {
-	type = type_;
-	lirePlats(nomFichier,type); // a revoir
+GestionnairePlats::GestionnairePlats(const string& nomFichier, TypeMenu type): type_(type) {
+	
+	lirePlats(nomFichier,type);
 }
 
 GestionnairePlats ::~GestionnairePlats() {
@@ -21,7 +21,11 @@ GestionnairePlats ::~GestionnairePlats() {
 }
 
 GestionnairePlats::GestionnairePlats(GestionnairePlats* gestionnaire) {
-	
+
+	map<string,Plat*> :: const_iterator it;
+	for (it =gestionnaire->conteneur_.begin(); it!= gestionnaire->conteneur_.end(); it++) {
+		conteneur_.insert(*it);
+	}
 	
 }
 
