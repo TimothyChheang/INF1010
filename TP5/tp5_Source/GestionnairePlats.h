@@ -18,8 +18,8 @@
 
 using namespace std;
 
-template<typename T, typename C>
-class GestionnairePlats : public GestionnaireGenerique<T,C>
+
+class GestionnairePlats : public GestionnaireGenerique<pair< string, Plat* >, map<string, Plat*>>
 {
 public:
 	GestionnairePlats(const string& nomFichier, TypeMenu type); //TODO

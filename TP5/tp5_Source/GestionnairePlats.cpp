@@ -18,9 +18,23 @@ GestionnairePlats::GestionnairePlats(const string& nomFichier, TypeMenu type) {
 
 
 GestionnairePlats::GestionnairePlats(GestionnairePlats* gestionnaire) {
-	GestionnairePlats gestionnaire_new;
-	copy(gestionnaire.begin(),gestionnaire.end() ,gestionnaire_new.begin() );
+	
+	
 }
+
+TypeMenu GestionnairePlats::getType() const {
+	return type_;
+}
+
+
+Plat* GestionnairePlats::allouerPlat(Plat*) {
+	
+}
+
+Plat* GestionnairePlats::trouverPlatMoinsCher() const {
+
+}
+
 
 
 void GestionnairePlats::lirePlats(const string& nomFichier, TypeMenu type)
