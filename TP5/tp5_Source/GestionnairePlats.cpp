@@ -54,7 +54,15 @@ Plat* GestionnairePlats::trouverPlatPlusCher() const {
 	
 Plat* GestionnairePlats::trouverPlat(const string& nom) const {
 	map<string, Plat*> ::const_iterator it;
-};
+	for (it = conteneur_.begin(); it != conteneur_.end(); it++) {
+		find(conteneur_.begin(),conteneur_.end(),nom);
+	}
+}
+
+vector<pair<string, Plat*>> GestionnairePlats::getPlatsEntre(double borneInf, double borneSup) {
+
+
+}
 
 
 void GestionnairePlats::lirePlats(const string& nomFichier, TypeMenu type)
