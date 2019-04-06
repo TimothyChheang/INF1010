@@ -16,7 +16,7 @@ class FoncteurPlatMoinsCher
 {
 	public:
 		FoncteurPlatMoinsCher(){}
-		bool operator()(Plat* plat1, Plat* plat2) { return plat1->getPrix() < plat2->getPrix(); }
+		bool operator()(pair<string, Plat*> Pair1, pair<string, Plat*> Pair2) { return Pair1.second->getPrix() < Pair2.second->getPrix(); }
 	private:
 };
 
@@ -24,7 +24,7 @@ class FoncteurIntervalle
 {
 	public:
 		FoncteurIntervalle(int max, int min) : max_(max), min_(min) {}
-		bool operator()(Plat* plat){ return (plat->getPrix >= min_ && plat->getPrix <= max_); }
+		bool operator()(pair<string, Plat*> Pair){ return (Pair.second->getPrix() >= min_ && Pair.second->getPrix() <= max_); }
 
 	private:
 		int max_, min_;

@@ -8,9 +8,7 @@
 
 #include <algorithm>
 #include "Foncteur.h"
-#include <utility>
-#include <map>
-#include <functional>
+
 
 using namespace  std;
 
@@ -19,12 +17,12 @@ using namespace  std;
 template<typename T, typename C>
 class GestionnaireGenerique
 {
-public:
+	public:
 	C getConteneur() const{ return conteneur_; }
 	void ajouter(T t) { conteneur_.insert(t); }
 	int getNombreElements() const { return conteneur_.size(); }
 
-protected:
+	protected:
 	C conteneur_;
 };
 

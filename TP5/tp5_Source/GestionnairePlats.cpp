@@ -42,26 +42,39 @@ Plat* GestionnairePlats::allouerPlat(Plat* plat) {
 
 Plat* GestionnairePlats::trouverPlatMoinsCher() const {
 
-	return (min_element((*conteneur_.begin()).second, (*conteneur_.end()).second, FoncteurPlatMoinsCher()));
+	return ((*min_element(conteneur_.begin(), conteneur_.end(), FoncteurPlatMoinsCher())).second);
 }
 
 Plat* GestionnairePlats::trouverPlatPlusCher() const {
-	auto p = [](Plat* plat1, Plat* plat2) {
-		return (plat1->getPrix() > plat2->getPrix());
+	auto p = [](pair<string, Plat*> Pair1, pair<string, Plat*> Pair2) {
+		return (Pair1.second->getPrix() > Pair2.second->getPrix());
 	};
-	return (max_element((*conteneur_.begin()).second, (*conteneur_.end()).second, p));
+	return (*max_element(conteneur_.begin(), conteneur_.end() ,  p)).second;
 }
 	
 Plat* GestionnairePlats::trouverPlat(const string& nom) const {
-	map<string, Plat*> ::const_iterator it;
-	for (it = conteneur_.begin(); it != conteneur_.end(); it++) {
-		find(conteneur_.begin(),conteneur_.end(),nom);
+	for (auto it = conteneur_.begin(); it != conteneur_.end(); it++) {
+		if ((*it).first == nom) {
+			return (*it).second;
+		}
 	}
+	return nullptr;
 }
 
 vector<pair<string, Plat*>> GestionnairePlats::getPlatsEntre(double borneInf, double borneSup) {
+	vector<pair<string, Plat*>> platsEntre;
+	auto it = conteneur_.begin();
+	while(it != conteneur_.end()) {
+		platsEntre.push_back(*find_if((it), (conteneur_.end()), FoncteurIntervalle(borneSup, borneInf)));
+	}
+	return platsEntre;
+}
 
-
+void GestionnairePlats::afficherPlats(ostream& os) {
+	auto it = conteneur_.begin();
+	for (it ; it != conteneur_.end(); it++) {
+		(*it).second->afficherPlat(os);
+	}
 }
 
 

@@ -19,7 +19,7 @@
 using namespace std;
 
 
-class GestionnairePlats : public GestionnaireGenerique<pair< string, Plat* >, map<string, Plat*>>
+class GestionnairePlats : public GestionnaireGenerique <pair< string, Plat* >, map<string, Plat*>>
 {
 public:
 	GestionnairePlats(const string& nomFichier, TypeMenu type); //TODO
