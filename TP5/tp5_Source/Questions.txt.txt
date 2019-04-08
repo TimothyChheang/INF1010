@@ -1,0 +1,14 @@
+1. Aurait-il été possible de créer un autre gestionnaire pour les autres classes?
+   Si oui, laquelle et quel type de conteneur conseilleriez-vous?
+
+En considérant que le restaurant fait partie d'une chaine de restauration, on aurait
+pu faire un GestionnaireRestaurant avec un conteneur map. La clé serait 
+le # du restaurant et l'objet, un pointeur vers l'objet Restaurant.
+
+2. Pourquoi l'implémentation des classes génériques est dans .h et non pas séparée
+   en .h et .cpp comme les classes normales?
+
+Afin d'éviter des erreurs de complilation. Puisque le .h d'une classe générique
+contient des templates, il faut que le .cpp faisait appel à ce .h générique sache
+comment implémenter l'objet créé et ses méthodes, et donc, la signature et l'implémentation
+doivent se trouver dans le .h.
