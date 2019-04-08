@@ -11,40 +11,49 @@
 #include "PlatBioVege.h"
 
 
+//Constructeur par parametre
 GestionnairePlats::GestionnairePlats(const string& nomFichier, TypeMenu type): type_(type) {
 	
 	lirePlats(nomFichier,type);
 }
 
+//Destructeur
 GestionnairePlats ::~GestionnairePlats() {
-	map<string, Plat*> ::const_iterator it;
-	for (it = conteneur_.begin(); it != conteneur_.end(); it++) {
+	map<string, Plat*> ::iterator it;
+	for ( it = conteneur_.begin(); it != conteneur_.end(); it++) {
 		delete (*it).second;
 	}
+	
 }
 
+//Constructeur par copie
 GestionnairePlats::GestionnairePlats(GestionnairePlats* gestionnaire) {
 	type_ = gestionnaire->getType();
-	map<string,Plat*> :: const_iterator it;
-	for (it =gestionnaire->conteneur_.begin(); it!= gestionnaire->conteneur_.end(); it++) {
-		conteneur_.insert(make_pair((*it).first, allouerPlat((*it).second)));
+	map<string,Plat*> :: iterator it;
+	for (it =conteneur_.begin(); it!= conteneur_.end(); it++) {
+		ajouter(make_pair((*it).first, allouerPlat((*it).second)));
 	}
 }
 
+//Methode qui nous permet de prendre le type de plat OUT: TypeMenu
 TypeMenu GestionnairePlats::getType() const {
 	return type_;
 }
 
 
+//Methode qui nous permet d'allouer le plat IN : Plat*, OUT : Plat*
 Plat* GestionnairePlats::allouerPlat(Plat* plat) {
 	return plat->clone();
 }
 
+//Methode qui utilise l'algorithme min_element et les foncteurs pour trouver le plat le moins cher OUT : Plat*
 Plat* GestionnairePlats::trouverPlatMoinsCher() const {
 
 	return ((*min_element(conteneur_.begin(), conteneur_.end(), FoncteurPlatMoinsCher())).second);
 }
 
+
+//Methode qui utilise une fonction lambda, un algorithme max_element et les foncteurs pour trouver le plat le plus cher  OUT : Plat*
 Plat* GestionnairePlats::trouverPlatPlusCher() const {
 	auto p = [](pair<string, Plat*> Pair1, pair<string, Plat*> Pair2) {
 		return (Pair1.second->getPrix() > Pair2.second->getPrix());
@@ -52,6 +61,7 @@ Plat* GestionnairePlats::trouverPlatPlusCher() const {
 	return (*max_element(conteneur_.begin(), conteneur_.end() ,  p)).second;
 }
 	
+//Methode qui nous permet de trouver le nom du plat que le client veut avoir IN : string, OUT : Plat*
 Plat* GestionnairePlats::trouverPlat(const string& nom) const {
 	for (auto it = conteneur_.begin(); it != conteneur_.end(); it++) {
 		if ((*it).first == nom) {
@@ -61,6 +71,8 @@ Plat* GestionnairePlats::trouverPlat(const string& nom) const {
 	return nullptr;
 }
 
+
+//Methode qui nous permet de trouver un plat entre un certain intervalle IN : double double , OUT :vector<pair<string, Plat*>>
 vector<pair<string, Plat*>> GestionnairePlats::getPlatsEntre(double borneInf, double borneSup) {
 	vector<pair<string, Plat*>> platsEntre;
 	auto it = conteneur_.begin();
@@ -70,6 +82,7 @@ vector<pair<string, Plat*>> GestionnairePlats::getPlatsEntre(double borneInf, do
 	return platsEntre;
 }
 
+//Methode d'affichage
 void GestionnairePlats::afficherPlats(ostream& os) {
 	auto it = conteneur_.begin();
 	for (it ; it != conteneur_.end(); it++) {
@@ -89,6 +102,7 @@ void GestionnairePlats::lirePlats(const string& nomFichier, TypeMenu type)
 
 pair<string, Plat*> GestionnairePlats::lirePlatDe(LectureFichierEnSections& fichier)
 {
+
 	auto lectureLigne = fichier.lecteurDeLigne();
 	Plat* plat;
 	string nom, typeStr;

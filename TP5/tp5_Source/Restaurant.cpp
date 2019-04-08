@@ -34,8 +34,7 @@ Restaurant::~Restaurant()
 	delete menuMatin_;
 	delete menuMidi_;
 	delete menuSoir_;
-	for (Table* table : tables_->getConteneur())
-		delete table;
+	delete tables_;
 }
 
 
@@ -132,6 +131,7 @@ string Restaurant::getNomTypeMenu(TypeMenu typeMenu) const
 	return string{ nomsDesTypesDeMenu[static_cast<int>(typeMenu)] };
 }
 
+//Methode qui permet de de verifier s'il est possible de placer un client a une table IN: Client*, OUT : bool
 bool Restaurant::placerClients(Client* client)
 {
 	const int tailleGroupe = client->getTailleGroupe();
@@ -144,6 +144,7 @@ bool Restaurant::placerClients(Client* client)
 	//TODO : Si possible assigner la table au client sinon retourner false.
 }
 
+//Methode qui permet de faire les livraisons IN : Client* vector<string> , OUT : bool 
 bool Restaurant::livrerClient(Client* client, const vector<string>& commande)
 {
 	if (dynamic_cast<ClientPrestige*>(client)) {
