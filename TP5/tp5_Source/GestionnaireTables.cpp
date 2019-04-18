@@ -8,6 +8,7 @@
 #include "GestionnaireTables.h"
 #include "LectureFichierEnSections.h"
 
+
 void GestionnaireTables::lireTables(const string& nomFichier)
 {
 	LectureFichierEnSections fichier{ nomFichier };
@@ -19,7 +20,7 @@ void GestionnaireTables::lireTables(const string& nomFichier)
 	}
 }
 
-
+//Methode qui permet de retourner une table dans le conteneur IN : int , OUT : Tables*
 Table* GestionnaireTables::getTable(int id) const {
 	auto it = conteneur_.begin();
 	for (it; it != conteneur_.end(); it++) {
@@ -30,27 +31,30 @@ Table* GestionnaireTables::getTable(int id) const {
 	return nullptr;
 }
 
+//Methode qui permet de retouner la table ayant assez de place pour contenir le groupe IN : int , OUT Table*
 Table* GestionnaireTables::getMeilleureTable(int tailleGroupe) const {
 	Table* meilleureTable = nullptr;
 	auto it = conteneur_.begin();
 	for (it ; (*it)->getNbPlaces() < tailleGroupe ; it++) {
-		if ((*it)->getNbPlaces() >= tailleGroupe) {
+		if ((*it)->getNbPlaces() >= tailleGroupe && !(*it)->estOccupee()) {
 			meilleureTable = (*it);
 		}
 	}
 	while (it != conteneur_.end()) {
-		if ((*it)->getNbPlaces() >= tailleGroupe && (*it)->getNbPlaces() < meilleureTable->getNbPlaces()) {
+		if ((*it)->getNbPlaces() >= tailleGroupe && (*it)->getNbPlaces() < meilleureTable->getNbPlaces() && !(*it)->estOccupee()) {
 			meilleureTable = (*it);
 			it++;
 		}
 	}
 	return meilleureTable;
+	
 }
 
+// Methode d'affichage 
 void GestionnaireTables::afficherTables(ostream& os) const {
 	os << "Voici les Tables: " << endl;
 	for (auto it = conteneur_.begin(); it != conteneur_.end(); it++) {
-		os << (*it);
+		os << *(*it);
 	}
 }
 
